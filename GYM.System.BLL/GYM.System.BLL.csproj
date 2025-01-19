@@ -11,4 +11,8 @@
     <Folder Include="Repositores\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GYM.System.DAL\GYM.System.DAL.csproj" />
+  </ItemGroup>
+
 </Project>

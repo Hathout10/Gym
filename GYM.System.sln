@@ -3,11 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GYM.System.PL", "GYM.System.PL\GYM.System.PL.csproj", "{615CBFB3-5DA6-401A-983F-29B7615C7B72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GYM.System.PL", "GYM.System.PL\GYM.System.PL.csproj", "{615CBFB3-5DA6-401A-983F-29B7615C7B72}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E44913D2-C57D-445B-BC98-B1387EB1632D} = {E44913D2-C57D-445B-BC98-B1387EB1632D}
+		{F59B7BC8-2EDA-49EB-87FA-7A8D9BE01AAB} = {F59B7BC8-2EDA-49EB-87FA-7A8D9BE01AAB}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GYM.System.DAL", "GYM.System.DAL\GYM.System.DAL.csproj", "{E44913D2-C57D-445B-BC98-B1387EB1632D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GYM.System.DAL", "GYM.System.DAL\GYM.System.DAL.csproj", "{E44913D2-C57D-445B-BC98-B1387EB1632D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GYM.System.BLL", "GYM.System.BLL\GYM.System.BLL.csproj", "{F59B7BC8-2EDA-49EB-87FA-7A8D9BE01AAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GYM.System.BLL", "GYM.System.BLL\GYM.System.BLL.csproj", "{F59B7BC8-2EDA-49EB-87FA-7A8D9BE01AAB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E44913D2-C57D-445B-BC98-B1387EB1632D} = {E44913D2-C57D-445B-BC98-B1387EB1632D}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
