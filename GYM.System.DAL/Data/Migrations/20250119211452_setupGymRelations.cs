@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace GYM.System.DAL.Migrations
+namespace GYM.System.DAL.Data.Migrations
 {
     /// <inheritdoc />
     public partial class setupGymRelations : Migration

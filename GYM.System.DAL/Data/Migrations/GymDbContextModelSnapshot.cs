@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace GYM.System.DAL.Migrations
+namespace GYM.System.DAL.Data.Migrations
 {
     [DbContext(typeof(GymDbContext))]
     partial class GymDbContextModelSnapshot : ModelSnapshot
