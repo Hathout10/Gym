@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Gym.System.DAL.Data.Entites
 {
-	public class Employees: BaseEntity
+	public class Employees: Person
 	{
 		public string Shift { get; set; }
 		public double Salary { get; set; }
-		public double? Advantage { get; set; }
+		public double? Bonus { get; set; }
 
 		//Relation
 

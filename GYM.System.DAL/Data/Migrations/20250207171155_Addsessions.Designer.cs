@@ -4,6 +4,7 @@ using GYM.System.DAL.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GYM.System.DAL.Data.Migrations
 {
     [DbContext(typeof(GymDbContext))]
-    partial class GymDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250207171155_Addsessions")]
+    partial class Addsessions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,31 +61,6 @@ namespace GYM.System.DAL.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Admin");
-                });
-
-            modelBuilder.Entity("GYM.System.DAL.Data.Entites.Booking_Seessions", b =>
-                {
-                    b.Property<int>("playerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("subscriptionId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("receptionistId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Sessionsid")
-                        .HasColumnType("int");
-
-                    b.HasKey("playerId", "subscriptionId", "receptionistId");
-
-                    b.HasIndex("Sessionsid");
-
-                    b.HasIndex("receptionistId");
-
-                    b.HasIndex("subscriptionId");
-
-                    b.ToTable("BookingSeessions");
                 });
 
             modelBuilder.Entity("GYM.System.DAL.Data.Entites.Booking_Subscription", b =>
@@ -324,30 +302,6 @@ namespace GYM.System.DAL.Data.Migrations
                     b.ToTable("Receptionist");
                 });
 
-            modelBuilder.Entity("GYM.System.DAL.Data.Entites.Sessions", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
-
-                    b.Property<int?>("adminId")
-                        .HasColumnType("int");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("adminId");
-
-                    b.ToTable("Sessions");
-                });
-
             modelBuilder.Entity("GYM.System.DAL.Data.Entites.Subscription", b =>
                 {
                     b.Property<int>("id")
@@ -428,37 +382,6 @@ namespace GYM.System.DAL.Data.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("GYM.System.DAL.Data.Entites.Booking_Seessions", b =>
-                {
-                    b.HasOne("GYM.System.DAL.Data.Entites.Sessions", null)
-                        .WithMany("BookingSubscription")
-                        .HasForeignKey("Sessionsid");
-
-                    b.HasOne("GYM.System.DAL.Data.Entites.Player", "player")
-                        .WithMany()
-                        .HasForeignKey("playerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GYM.System.DAL.Data.Entites.Receptionist", "receptionist")
-                        .WithMany()
-                        .HasForeignKey("receptionistId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GYM.System.DAL.Data.Entites.Subscription", "subscription")
-                        .WithMany()
-                        .HasForeignKey("subscriptionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("player");
-
-                    b.Navigation("receptionist");
-
-                    b.Navigation("subscription");
-                });
-
             modelBuilder.Entity("GYM.System.DAL.Data.Entites.Booking_Subscription", b =>
                 {
                     b.HasOne("GYM.System.DAL.Data.Entites.Player", "player")
@@ -519,15 +442,6 @@ namespace GYM.System.DAL.Data.Migrations
                     b.Navigation("receptionist");
                 });
 
-            modelBuilder.Entity("GYM.System.DAL.Data.Entites.Sessions", b =>
-                {
-                    b.HasOne("GYM.System.DAL.Data.Entites.Admin", "admin")
-                        .WithMany()
-                        .HasForeignKey("adminId");
-
-                    b.Navigation("admin");
-                });
-
             modelBuilder.Entity("GYM.System.DAL.Data.Entites.Subscription", b =>
                 {
                     b.HasOne("GYM.System.DAL.Data.Entites.Admin", "admin")
@@ -569,11 +483,6 @@ namespace GYM.System.DAL.Data.Migrations
                     b.Navigation("BookingSubscription");
 
                     b.Navigation("Enrollpayments");
-                });
-
-            modelBuilder.Entity("GYM.System.DAL.Data.Entites.Sessions", b =>
-                {
-                    b.Navigation("BookingSubscription");
                 });
 
             modelBuilder.Entity("GYM.System.DAL.Data.Entites.Subscription", b =>

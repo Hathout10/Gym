@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GYM.System.DAL.Data.Entites
 {
-	public class Admin :BaseEntity
+	public class Admin :Person
 	{
 
 

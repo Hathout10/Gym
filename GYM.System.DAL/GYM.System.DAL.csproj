@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Data\DataSeed\" />
     <Folder Include="Data\Entites\Store\" />
-    <Folder Include="Dtos\" />
     <Folder Include="Mapping\" />
     <Folder Include="Data\Migrations\" />
   </ItemGroup>
