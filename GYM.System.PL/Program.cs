@@ -1,12 +1,13 @@
 
 using GYM.System.DAL.Data.Contexts;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace GYM.System.PL
 {
 	public class Program
 	{
-		public static void Main(string[] args)
+		public static async Task Main(string[] args)
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
@@ -37,7 +38,25 @@ namespace GYM.System.PL
 
 			app.MapControllers();
 
-			app.Run();
+			await ApplyMigrationsAsync(app.Services);
+
+			await app.RunAsync(); // Use RunAsync instead of Run
+		}
+
+		private static async Task ApplyMigrationsAsync(IServiceProvider services)
+		{
+			using var scope = services.CreateScope();
+			var loggerFactory = scope.ServiceProvider.GetRequiredService<ILoggerFactory>();
+			try
+			{
+				var context = scope.ServiceProvider.GetRequiredService<GymDbContext>();
+				await context.Database.MigrateAsync();
+			}
+			catch (Exception ex)
+			{
+				var logger = loggerFactory.CreateLogger<Program>();
+				logger.LogError(ex, "An error occurred while applying migrations.");
+			}
 		}
 	}
 }

@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace GYM.System.DAL.Data.Entites
 {
-	public class Player : BaseEntity
+	public class Player : Person
 	{
         public double? Height { get; set; }
 		public double? Weight { get; set; }
         public string Gender { get; set; }
-        public bool? Action { get; set; } // ("Subscribed" , "Canceled")
-		public double? WalletBalance { get; set; }
+		public bool? IsStopped { get; set; } = false; // ("Subscribed" , "Canceled")
 
 		//Relations
 		public ICollection<Booking_Subscription>? BookingSubscription { get; set; }

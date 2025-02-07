@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace GYM.System.DAL.Data.Entites
 {
-	public class Subscription
+	public class Subscription : BaseEntity
 	{
-		public int Id { get; set; }
-		public string Type { get; set; }
-        public string? Description { get; set; }
 		public int? NumOf_Sessions { get; set; }
-        public double Price { get; set; }
 
 		//Relations
 

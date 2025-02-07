@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GYM.System.DAL.Data.Entites
 {
-	public class Receptionist : BaseEntity
+	public class Receptionist : Person
 	{
 		public string Shift { get; set; }
 		public double Salary { get; set; }
